@@ -8,7 +8,7 @@ public class NetBankingApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(NetBankingApplication.class, args);
-		System.out.println("deployed");
+		System.out.println("Spring Boot Application Deployed Successfully");
 //		Login login=new Login();
 //		
 //		Customer customer=new Customer(101, "chaitanya", "raykar","navdeep", "kalyan",
