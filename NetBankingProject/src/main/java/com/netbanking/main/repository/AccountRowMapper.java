@@ -34,7 +34,7 @@ public class AccountRowMapper implements RowMapper<Account> {
 			customer = customerRepository.getCustomerByCustomerId(customerId);
 		}
 		// Customer customer = (Customer) resultSet.getObject("customer");
-
+		System.out.println("final");
 		Account account = new Account(accountId, accountType, openDate, minimumBalance, currentBalance, rateOfInterest,
 				customer);
 		return account;
