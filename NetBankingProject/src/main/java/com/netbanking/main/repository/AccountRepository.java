@@ -28,7 +28,7 @@ public class AccountRepository implements AccountRepositoryInterface{
 	
 	
 	@Override
-	public boolean addNewAccount(Account account) {
+	public Account addNewAccount(Account account) {
 		System.out.println("into repository addNewAccount");
 		System.out.println(account);
 		
@@ -36,9 +36,9 @@ public class AccountRepository implements AccountRepositoryInterface{
 		resultCount=jdbcTemplate.update(INSERT_ACCOUNT, args);
 		
 		if (resultCount > 0) {
-			return true;
+			return account;
 		} else {
-			return false;
+			return account;
 		}
 	}
 

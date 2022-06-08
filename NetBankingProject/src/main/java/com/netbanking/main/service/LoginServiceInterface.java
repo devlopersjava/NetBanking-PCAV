@@ -6,7 +6,7 @@ import com.netbanking.main.pojo.Login;
 
 public interface LoginServiceInterface {
 
-	public boolean addLogin(Login login);
+	public Login addLogin(Login login);
 	
 	public boolean updateLoginByUserId(Login login);
 	

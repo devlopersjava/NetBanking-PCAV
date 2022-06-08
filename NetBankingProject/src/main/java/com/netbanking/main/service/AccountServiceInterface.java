@@ -5,7 +5,7 @@ import java.util.List;
 import com.netbanking.main.pojo.Account;
 
 public interface AccountServiceInterface {
-	public boolean addNewAccount(Account account);
+	public Account addNewAccount(Account account);
 	
 	public boolean updateAccount(Account account);
 

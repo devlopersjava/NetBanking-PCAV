@@ -15,7 +15,7 @@ public class LoginService implements LoginServiceInterface {
 	private LoginRepositoryInterface loginRepositoryInterface;
 	
 	@Override
-	public boolean addLogin(Login login) {
+	public Login addLogin(Login login) {
 		return loginRepositoryInterface.addLogin(login) ;
 	}
 

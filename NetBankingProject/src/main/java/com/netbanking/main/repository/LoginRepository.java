@@ -29,15 +29,15 @@ public class LoginRepository implements LoginRepositoryInterface {
 	private static String VALIDATE_USER="SELECT * FROM LOGIN WHERE LOGIN_ID = ? AND PASSWORD = ?";
 
 	@Override
-	public boolean addLogin(Login login) {
+	public Login addLogin(Login login) {
 
 		Object[] args = {  login.getPassword(), login.getRole() };
 
 		resultcount = jdbcTemplate.update(INSERT_LOGIN, args);
 		if (resultcount > 0)
-			return true;
+			return login;
 		else
-			return false;
+			return login;
 	}
 
 	@Override

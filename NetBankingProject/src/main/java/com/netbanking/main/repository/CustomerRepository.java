@@ -27,7 +27,7 @@ public class CustomerRepository implements CustomerRepositoryInterface {
 	private static final String SELECT_SINGLE_CUSROMER = "SELECT * FROM CUSTOMER WHERE CUSTOMER_ID = ?";
 
 	@Override
-	public boolean addNewCustomer(Customer customer) {
+	public Customer addNewCustomer(Customer customer) {
 		System.out.println("into repository addNewCustumer");
 		System.out.println(customer);
 		Object[] args = {  customer.getFirstName(), customer.getLastName(),customer.getLogin().getUserId(),
@@ -39,9 +39,10 @@ public class CustomerRepository implements CustomerRepositoryInterface {
 		resultCount = jdbcTemplate.update(INSERT_CUSTOMER, args);
 
 		if (resultCount > 0)
-			return true;
+			return customer;
 		else
-			return false;
+		return customer;
+		
 
 	}
 
@@ -104,4 +105,5 @@ public class CustomerRepository implements CustomerRepositoryInterface {
 		
 	}
 
+	
 }

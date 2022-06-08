@@ -22,7 +22,7 @@ public class AccountController {
 	private AccountServiceInterface accountService;
 	
 	@RequestMapping(value="account", method = RequestMethod.POST)
-	public boolean addNewAccount(@RequestBody Account account) {
+	public Account addNewAccount(@RequestBody Account account) {
 		System.out.println("object received");
 		System.out.println(account);
 		return accountService.addNewAccount(account);

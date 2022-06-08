@@ -7,7 +7,7 @@ import com.netbanking.main.repository.CustomerRepositoryInterface;
 
 public interface CustomerServiceInterface {
 	
-	public boolean addNewCustomer(Customer customer);
+	public Customer addNewCustomer(Customer customer);
 
 	public boolean updateCustomer(Customer customer);
 
@@ -16,5 +16,6 @@ public interface CustomerServiceInterface {
 	public Customer getCustomerByCustomerId(String customerId);
 
 	public List<Customer> getAllCustomer();
+	
 
 }

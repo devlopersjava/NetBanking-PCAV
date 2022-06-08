@@ -15,7 +15,7 @@ public class CustomerService implements CustomerServiceInterface {
 	private CustomerRepositoryInterface customerRepositoryInterface;
 
 	@Override
-	public boolean addNewCustomer(Customer customer) {
+	public Customer addNewCustomer(Customer customer) {
 		System.out.println("in service add employee");
 		return customerRepositoryInterface.addNewCustomer(customer);
 		
@@ -40,5 +40,7 @@ public class CustomerService implements CustomerServiceInterface {
 	public List<Customer> getAllCustomer() {
 		return customerRepositoryInterface.getAllCustomer();
 	}
+
+	
 
 }

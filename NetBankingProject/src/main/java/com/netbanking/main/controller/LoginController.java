@@ -26,7 +26,7 @@ public class LoginController {
 	private LoginServiceInterface loginServiceInterface;
  
 	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public boolean addNewEmployee(@RequestBody Login login ) {
+	public Login addNewEmployee(@RequestBody Login login ) {
 		return loginServiceInterface.addLogin(login);
 	}
 
@@ -58,6 +58,8 @@ public class LoginController {
 		
 	
 	}
+	
+
 
 	
 	

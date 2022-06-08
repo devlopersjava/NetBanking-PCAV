@@ -23,7 +23,7 @@ public class CustomerController {
 	private CustomerServiceInterface customerServiceInterface;
 
 	@RequestMapping(value = "customer", method = RequestMethod.POST)
-	public boolean addNewEmployee(@RequestBody Customer customer) {
+	public Customer addNewEmployee(@RequestBody Customer customer) {
 		return customerServiceInterface.addNewCustomer(customer);
 	}
 //	
@@ -47,7 +47,9 @@ public class CustomerController {
 		return customerServiceInterface.getAllCustomer();
 		
 	}
-
+	
+	
+	
 	
 	
 	

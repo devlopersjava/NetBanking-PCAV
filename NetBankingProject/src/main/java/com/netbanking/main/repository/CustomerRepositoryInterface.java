@@ -6,7 +6,7 @@ import com.netbanking.main.pojo.Customer;
 
 public interface CustomerRepositoryInterface {
 
-	public boolean addNewCustomer(Customer customer);
+	public Customer addNewCustomer(Customer customer);
 
 	public boolean updateCustomer(Customer customer);
 
@@ -15,5 +15,6 @@ public interface CustomerRepositoryInterface {
 	public Customer getCustomerByCustomerId(String customerId);
 
 	public List<Customer> getAllCustomer();
+
 
 }
