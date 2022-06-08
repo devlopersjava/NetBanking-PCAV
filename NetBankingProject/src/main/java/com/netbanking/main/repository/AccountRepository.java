@@ -23,7 +23,7 @@ public class AccountRepository implements AccountRepositoryInterface{
 	private static final String INSERT_ACCOUNT = "INSERT INTO ACCOUNT(ACCOUNT_ID,ACCOUNT_TYPE,OPEN_DATE,MINIMUM_BALANCE,CURRENT_BALANCE,RATE_OF_INTEREST,CUSTOMER_ID) VALUES('ACC0' || SEQ_ACCOUNT_ID.NEXTVAL,?,?,?,?,?,?)";
 	private static final String SELECT_ALL_ACCOUNT= "SELECT * FROM ACCOUNT";
 	private static final String SELECT_SINGLE_ACCOUNT="SELECT * FROM ACCOUNT WHERE ACCOUNT_ID=?";
-	private static final String UPDATE_ACCOUNT ="UPDATE ACCOUNT SET ACCOUNT_TYPE=?, OPEN_DATE=?, MINIMUM_BALANCE=?,CURRENT_BALANCE=?,RATE_OF_INTEREST=?,CUSTOMER=?";
+	private static final String UPDATE_ACCOUNT ="UPDATE ACCOUNT SET ACCOUNT_TYPE=?, OPEN_DATE=?, MINIMUM_BALANCE=?,CURRENT_BALANCE=?,RATE_OF_INTEREST=?,CUSTOMER_ID=? WHERE ACCOUNT_ID=?";
 	private static final String DELETE_ACCOUNT ="DELETE ACCOUNT WHERE ACCOUNT_ID=?";
 	
 	
@@ -87,6 +87,7 @@ public class AccountRepository implements AccountRepositoryInterface{
 	@Override
 	public List<Account> getAllAccount() {
 		List<Account> accounts=jdbcTemplate.query(SELECT_ALL_ACCOUNT, accountRowMapper);
+		System.out.println(accounts);
 		return accounts;
 	}
 

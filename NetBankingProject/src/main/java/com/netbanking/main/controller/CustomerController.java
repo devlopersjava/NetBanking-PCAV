@@ -44,6 +44,8 @@ public class CustomerController {
 	
 	@RequestMapping(value="customer",method = RequestMethod.GET)
 	public List<Customer> getAllCustomer(){
+		System.out.println("getAllCustomer()");
+		
 		return customerServiceInterface.getAllCustomer();
 		
 	}

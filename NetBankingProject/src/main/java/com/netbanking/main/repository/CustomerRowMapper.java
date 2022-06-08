@@ -12,7 +12,7 @@ import com.netbanking.main.pojo.Customer;
 import com.netbanking.main.pojo.Login;
 
 @Repository
-@Scope("prototype")
+//@Scope("prototype")
 public class CustomerRowMapper implements RowMapper<Customer> {
 
 	@Autowired
@@ -30,10 +30,13 @@ public class CustomerRowMapper implements RowMapper<Customer> {
 		int telePhoneNumber = resultSet.getInt("TELE_PHONE_NUMBER");
 		String emailID = resultSet.getString("EMAIL_ID");
 		String status = resultSet.getString("STATUS");
-		String userId=resultSet.getString("LOGIN_ID");
-		
-		Login login = loginRepository.getOneUserByUserId(userId);
-		Customer customer = new Customer(customerId, firstName, lastName, address, city, state, zip,phoneNumber, telePhoneNumber, emailID, status, login);
+		String userId = resultSet.getString("LOGIN_ID");
+		Login login = null;
+		if (userId != null) {
+			login = loginRepository.getOneUserByUserId(userId);
+		}
+		Customer customer = new Customer(customerId, firstName, lastName, address, city, state, zip, phoneNumber,
+				telePhoneNumber, emailID, status, login);
 		return customer;
 	}
 }

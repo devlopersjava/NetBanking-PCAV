@@ -75,7 +75,6 @@ public class LoginRepository implements LoginRepositoryInterface {
 		System.out.println(userId);
 		Object[] args = { userId };
 		Login login = jdbcTemplate.queryForObject(GET_ONE_LOGIN, loginRowMapper, args);
-		
 		return login;
 	}
 
