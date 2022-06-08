@@ -18,30 +18,33 @@ public class CustomerRepository implements CustomerRepositoryInterface {
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
-	private static final String INSERT_CUSTOMER = "INSERT INTO CUSTOMER(CUSTOMER_ID,FIRST_NAME,LAST_NAME,address,city,state,zip,phoneNumber,telePhoneNumber,emailID,status,login) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+	private static final String INSERT_CUSTOMER = "INSERT INTO CUSTOMER(CUSTOMER_ID,FIRST_NAME,LAST_NAME,LOGIN_ID,ADDRESS,CITY,STATE,ZIP,PHONE_NUMBER,TELE_PHONE_NUMBER,EMAIL_ID,STATUS) VALUES('CUST0' || SEQ_CUSTOMER_ID.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?)";
 	private static  String SELECT_ALL_CUSTOMER = "SELECT * FROM CUSTOMER";
-	private static final String UPDATE_CUSTOMER = "UPDATE CUSTOMER SET  firstName= ?,lastName = ? ,address=?,city=?,state=?,zip=?,phoneNumber=?,telePhoneNumber=?,emailID=?,status=?,login=?"
-			+ "	WHERE customerId  = ?";
+	private static final String UPDATE_CUSTOMER = "UPDATE CUSTOMER SET  First_NAME=?,LAST_NAME =? ,ADDRESS=?,CITY=?,STATE=?,ZIP=?,PHONE_NUMBER=?,TELE_PHONE_NUMBER=?,EMAIL_ID=?,STATUS=?,LOGIN_ID=? WHERE CUSTOMER_ID  = ?";
+			
+			
 	private static final String DELETE_CUSTOMER = "DELETE CUSTOMER WHERE CUSTOMER_ID = ?";
 	private static final String SELECT_SINGLE_CUSROMER = "SELECT * FROM CUSTOMER WHERE CUSTOMER_ID = ?";
 
-//	@Override
-//	public boolean addNewCustomer(Customer customer) {
-//		System.out.println("into repository addNewCustumer");
-//		System.out.println(customer);
-//		Object[] args = { customer.getCustomerId(), customer.getFirstName(), customer.getLastName(),
-//				customer.getAddress(), customer.getCity(), customer.getState(), customer.getZip(),
-//				customer.getPhoneNumber(), customer.getTelePhoneNumber(), customer.getEmailID(), customer.getStatus(),
-//				customer.getLogin() };
-//
-//		resultCount = jdbcTemplate.update(INSERT_CUSTOMER, args);
-//
-//		if (resultCount > 0)
-//			return true;
-//		else
-//			return false;
-//
-//	}
+	@Override
+	public boolean addNewCustomer(Customer customer) {
+		System.out.println("into repository addNewCustumer");
+		System.out.println(customer);
+		Object[] args = {  customer.getFirstName(), customer.getLastName(),customer.getLogin().getUserId(),
+				customer.getAddress(), customer.getCity(), customer.getState(), customer.getZip(),
+				customer.getPhoneNumber(), customer.getTelePhoneNumber(), customer.getEmailID(), customer.getStatus(),
+				 };
+		System.out.println("end of repository addNewCustumer");
+
+		resultCount = jdbcTemplate.update(INSERT_CUSTOMER, args);
+
+		if (resultCount > 0)
+			return true;
+		else
+			return false;
+
+	}
+
 //
 //	@Override
 //	public boolean updateCustomer(Customer customer) {
@@ -80,12 +83,7 @@ public class CustomerRepository implements CustomerRepositoryInterface {
 
 	}
 
-	@Override
-	public boolean addNewCustomer(Customer customer) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
+	
 	@Override
 	public boolean updateCustomer(Customer customer) {
 		// TODO Auto-generated method stub

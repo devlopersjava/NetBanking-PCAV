@@ -16,7 +16,9 @@ public class CustomerService implements CustomerServiceInterface {
 
 	@Override
 	public boolean addNewCustomer(Customer customer) {
+		System.out.println("in service add employee");
 		return customerRepositoryInterface.addNewCustomer(customer);
+		
 	}
 
 	@Override

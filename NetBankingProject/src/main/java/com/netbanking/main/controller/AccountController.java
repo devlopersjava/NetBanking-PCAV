@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ public class AccountController {
 	private AccountServiceInterface accountService;
 	
 	@RequestMapping(value="account", method = RequestMethod.POST)
-	public boolean addNewAccount(Account account) {
+	public boolean addNewAccount(@RequestBody Account account) {
 		System.out.println("object received");
 		System.out.println(account);
 		return accountService.addNewAccount(account);

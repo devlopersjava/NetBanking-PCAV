@@ -19,7 +19,7 @@ public class LoginRepository implements LoginRepositoryInterface {
 
 	@Autowired
 	public JdbcTemplate jdbcTemplate;
-	private static String INSERT_LOGIN = "INSERT INTO LOGIN (LOGIN_ID,PASSWORD,ROLE) VALUES (?,?,?)";
+	private static String INSERT_LOGIN = "INSERT INTO LOGIN(LOGIN_ID,PASSWORD,ROLE) VALUES('LOG00'|| SEQ_LOGIN_ID.NEXTVAL,?,?)";
 	private static String UPDATE_LOGIN = "UPDATE LOGIN SET PASSWORD=?,ROLE=? WHERE USER_ID=?";
 	private static String DELETE_LOGIN = "DELETE LOGIN WHERE USERID=?";
 	private static String GET_ALL_LOGIN = "SELECT * FROM LOGIN";
@@ -31,7 +31,7 @@ public class LoginRepository implements LoginRepositoryInterface {
 	@Override
 	public boolean addLogin(Login login) {
 
-		Object[] args = { login.getUserId(), login.getPassword(), login.getRole() };
+		Object[] args = {  login.getPassword(), login.getRole() };
 
 		resultcount = jdbcTemplate.update(INSERT_LOGIN, args);
 		if (resultcount > 0)

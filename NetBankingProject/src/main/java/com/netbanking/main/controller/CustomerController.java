@@ -22,10 +22,10 @@ public class CustomerController {
 	@Autowired
 	private CustomerServiceInterface customerServiceInterface;
 
-//	@RequestMapping(value = "customer", method = RequestMethod.POST)
-//	public boolean addNewEmployee( Customer customer) {
-//		return customerServiceInterface.addNewCustomer(customer);
-//	}
+	@RequestMapping(value = "customer", method = RequestMethod.POST)
+	public boolean addNewEmployee(@RequestBody Customer customer) {
+		return customerServiceInterface.addNewCustomer(customer);
+	}
 //	
 //	@RequestMapping(value="customer",method = RequestMethod.PUT)
 //	public boolean updateCustomer(Customer customer) {

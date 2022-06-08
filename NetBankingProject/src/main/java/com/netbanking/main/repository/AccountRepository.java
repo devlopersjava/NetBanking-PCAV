@@ -20,7 +20,7 @@ public class AccountRepository implements AccountRepositoryInterface{
 	@Autowired
 	private AccountRowMapper accountRowMapper;
 
-	private static final String INSERT_ACCOUNT = "INSERT INTO ACCOUNT (ACCOUNT_TYPE,OPEN_DATE,MINIMUM_BALANCE,CURRENT_BALANCE,RATE_OF_INTEREST,CUSTOMER) VALUES(?,?,?,?,?,?)";
+	private static final String INSERT_ACCOUNT = "INSERT INTO ACCOUNT(ACCOUNT_ID,ACCOUNT_TYPE,OPEN_DATE,MINIMUM_BALANCE,CURRENT_BALANCE,RATE_OF_INTEREST,CUSTOMER_ID) VALUES('ACC0' || SEQ_ACCOUNT_ID.NEXTVAL,?,?,?,?,?,?)";
 	private static final String SELECT_ALL_ACCOUNT= "SELECT * FROM ACCOUNT";
 	private static final String SELECT_SINGLE_ACCOUNT="SELECT * FROM ACCOUNT WHERE ACCOUNT_ID=?";
 	private static final String UPDATE_ACCOUNT ="UPDATE ACCOUNT SET ACCOUNT_TYPE=?, OPEN_DATE=?, MINIMUM_BALANCE=?,CURRENT_BALANCE=?,RATE_OF_INTEREST=?,CUSTOMER=?";
@@ -32,7 +32,7 @@ public class AccountRepository implements AccountRepositoryInterface{
 		System.out.println("into repository addNewAccount");
 		System.out.println(account);
 		
-		Object[] args= {account.getAccountType(),account.getOpenDate(),account.getMinimumBalance(),account.getCurrentBalance(),account.getRateOfInterest(),account.getCustomer()};
+		Object[] args= {account.getAccountType(),account.getOpenDate(),account.getMinimumBalance(),account.getCurrentBalance(),account.getRateOfInterest(),account.getCustomer().getCustomerId()};
 		resultCount=jdbcTemplate.update(INSERT_ACCOUNT, args);
 		
 		if (resultCount > 0) {

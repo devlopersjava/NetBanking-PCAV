@@ -16,6 +16,7 @@ public class AccountService implements AccountServiceInterface {
 
 	@Override
 	public boolean addNewAccount(Account account) {
+		System.out.println("in account service");
 		return accountRpository.addNewAccount(account);
 	}
 
