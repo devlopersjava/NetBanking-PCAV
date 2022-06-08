@@ -35,6 +35,7 @@ public class CustomerRowMapper implements RowMapper<Customer> {
 		if (userId != null) {
 			login = loginRepository.getOneUserByUserId(userId);
 		}
+		System.out.println("final");
 		Customer customer = new Customer(customerId, firstName, lastName, address, city, state, zip, phoneNumber,
 				telePhoneNumber, emailID, status, login);
 		return customer;
