@@ -23,7 +23,7 @@ public class BankSlipRepository implements BankSlipRepositoryInterface {
 	private static final String UPDATE_BANK_SLIP = "UPDATE BANK_SLIP SET  CHEQUE_NUMBER=?,CHEQUE_DATE=?,SLIP_DATE=?, PAYERS_ACCOUNT_NUMBER=?,PAYER_BANK=?,BANK_SLIP_AMOUNT=?,BANK_SLIP_STATUS=?,ACCOUNT_ID=?  WHERE BANK_SLIP_ID=? ";
 	private static final String DELETE_BANK_SLIP = "DELETE BANK_SLIP WHERE BANK_SLPI_ID=?";
 	private static final String GET_ALL_BANK_SLIP = "SELECT * FROM BANK_SLIP";
-	private static final String GET_ONE_BANK_SLIP = "SELECT * FROM BANK_SLIP WHERE BANK_SLPI_ID=?";
+	private static final String GET_ONE_BANK_SLIP = "SELECT * FROM BANK_SLIP WHERE BANK_SLIP_ID=?";
 
 	@Override
 	public boolean addNewBankSlip(BankSlip bankSlip) {

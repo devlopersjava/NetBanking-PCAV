@@ -20,12 +20,12 @@ public class AccountController {
 	@Autowired
 	private AccountServiceInterface accountService;
 	
-//	@RequestMapping(value="account", method = RequestMethod.POST)
-//	public boolean addNewAccount(Account account) {
-//		System.out.println("object received");
-//		System.out.println(account);
-//		return accountService.addNewAccount(account);
-//	}
+	@RequestMapping(value="account", method = RequestMethod.POST)
+	public boolean addNewAccount(Account account) {
+		System.out.println("object received");
+		System.out.println(account);
+		return accountService.addNewAccount(account);
+	}
 //	
 //	@RequestMapping(value="account",method = RequestMethod.PUT)
 //	public boolean updateAccount(Account account) {

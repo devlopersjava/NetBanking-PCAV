@@ -18,7 +18,7 @@ import com.netbanking.main.pojo.FixedDepositeMaster;
 	import com.netbanking.main.service.FixedDepositeMasterService;
 	@RestController
 	@CrossOrigin(origins="*")
-	@RequestMapping("/masters")
+	@RequestMapping("masters")
 	public class FixedDepositeController {
 		@Autowired
 		private FixedDepositeMasterService depositeMasterService;
